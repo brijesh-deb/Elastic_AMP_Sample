@@ -7,24 +7,24 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    @GetMapping("/super-fast")
+    @GetMapping("/normal")
     public String getSuperFastApi() {
 
-        return "Without any delay";
-    }
-
-    @GetMapping("/fast")
-    public String getFastApi() throws InterruptedException {
-
-        Thread.sleep(20); // sleep for 20 milliseconds
-        return "With 20ms delay";
+        return "Normal call, without any  delay";
     }
 
     @GetMapping("/slow")
+    public String getFastApi() throws InterruptedException {
+
+        Thread.sleep(100);
+        return "Delayed by 100 ms";
+    }
+
+    @GetMapping("/veryslow")
     public String getSlowApi() throws InterruptedException {
 
-        Thread.sleep(3000); // sleep for 3 seconds
-        return "With 3000 ms delay";
+        Thread.sleep(4000);
+        return "Delayed by 4000 ms";
     }
 
 }
