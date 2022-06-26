@@ -23,8 +23,8 @@ public class TestController {
     @GetMapping("/veryslow")
     public String getSlowApi() throws InterruptedException {
 
-        Thread.sleep(4000);
-        return "Delayed by 4000 ms";
+        Thread.sleep(5000);
+        return "Delayed by 5000 ms";
     }
 
 }
